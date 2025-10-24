@@ -150,3 +150,5 @@ matplotlib
 ```
 pip install -r requirements.txt
 ```
+**Conclusion**
+Thus the binary classification model is trained and tested Successfully.
