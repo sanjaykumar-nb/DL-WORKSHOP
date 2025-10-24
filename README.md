@@ -54,15 +54,13 @@ cd census-income-classification
 pip install -r requirements.txt
 ```
 
-** Dataset Information**
+**Dataset Information**<br>
 The dataset used is the Adult Census Income Dataset from the UCI Machine Learning Repository.
 
 Target Column:
-
 income: <=50K or >50K
 
 Key Features:
-
 age, workclass, education, marital-status, occupation, relationship, race, sex, hours-per-week, native-country, etc.
 
 **Model Training**
@@ -71,19 +69,14 @@ Run the notebook or script to train the model:
 python train_model.py
 Training steps include:
 
-Encoding categorical columns using LabelEncoder and OneHotEncoder
+1.Encoding categorical columns using LabelEncoder and OneHotEncoder
+2.Splitting dataset into train/test sets
+3.Standardizing numerical features
+4.Building and training the PyTorch neural network
+5.Evaluating performance metrics
+6.Saving the trained model and encoders
 
-Splitting dataset into train/test sets
-
-Standardizing numerical features
-
-Building and training the PyTorch neural network
-
-Evaluating performance metrics
-
-Saving the trained model and encoders
-
-🔍 Model Evaluation
+**Model Evaluation**
 Example results after training:
 
 **Metric	Value**
@@ -92,7 +85,7 @@ Precision	84.7%
 Recall	82.1%
 F1 Score	83.3%
 
-🧾 Making Predictions
+**Making Predictions**
 Once the model is trained and saved, you can make predictions for new individuals:
 
 ```
@@ -132,13 +125,12 @@ prediction = model(torch.tensor(scaled_input).float())
 print("Predicted Income:", ">50K" if prediction.item() > 0.5 else "<=50K")
 
 ```
-💾 Saving & Loading the Model
+**Saving & Loading the Model**
 After training:
 ```
 torch.save(model.state_dict(), 'model.pth')
 ```
-To load later:
-
+**To load later:**
 ```
 model.load_state_dict(torch.load('model.pth'))
 model.eval()
